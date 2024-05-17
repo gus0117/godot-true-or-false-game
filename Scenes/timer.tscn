@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bqjrh7vfh5hgs"]
 
 [ext_resource type="Texture2D" uid="uid://dgnvqum6lde8o" path="res://Assets/Buttons/Options/red_circle.png" id="1_ng6di"]
-[ext_resource type="Texture2D" uid="uid://c32w4u754ggq8" path="res://Assets/Buttons/Options/blue_circle.png" id="2_1p70c"]
+[ext_resource type="Texture2D" uid="uid://drhp1wf6qh10j" path="res://Assets/Buttons/Options/green_circle.png" id="2_je2aw"]
 
 [node name="Timer" type="Control"]
 layout_mode = 3
@@ -9,21 +9,32 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Progress" type="TextureProgressBar" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 228.0
-offset_top = 597.0
-offset_right = 268.0
-offset_bottom = 637.0
-grow_horizontal = 2
-grow_vertical = 2
-value = 65.0
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+value = 55.0
 fill_mode = 5
-nine_patch_stretch = true
 texture_under = ExtResource("1_ng6di")
-texture_progress = ExtResource("2_1p70c")
+texture_progress = ExtResource("2_je2aw")
+
+[node name="Count" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -25.0
+offset_right = 35.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 28
+text = "42"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeCount" type="Timer" parent="."]
