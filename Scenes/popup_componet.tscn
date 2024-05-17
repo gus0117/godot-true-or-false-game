@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgs4lt2aivkvq"]
+[gd_scene load_steps=4 format=3 uid="uid://dgs4lt2aivkvq"]
 
 [ext_resource type="Shader" path="res://Shaders/popup_componet.gdshader" id="1_jx36v"]
+[ext_resource type="Script" path="res://Scripts/popup_componet.gd" id="1_yhecv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h4hda"]
 shader = ExtResource("1_jx36v")
 shader_parameter/amt = 1.0
 shader_parameter/edge_softness = 0.0
 shader_parameter/color = Color(0, 0.72549, 0.341176, 1)
+shader_parameter/screen_size = Vector2(900, 900)
 
 [node name="PopupComponet" type="Control"]
 layout_mode = 3
@@ -15,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_yhecv")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_h4hda")
