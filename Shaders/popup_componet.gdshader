@@ -11,7 +11,7 @@ void fragment()
 	vec2 uv = FRAGCOORD.xy / screen_size;
 	float radius = amt * 0.5;
 	vec2 center = vec2(0.5, 0.5); // Centro del círculo en coordenadas UV
-	float d = distance(uv, center);
+	float d = distance(UV, center);
 	float circle = smoothstep(d - edge_softness, d, radius - edge_softness);
 	COLOR = vec4(color.rgb, circle);
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b775ex25tymbn"]
+[gd_scene load_steps=25 format=3 uid="uid://b775ex25tymbn"]
 
 [ext_resource type="Texture2D" uid="uid://cxmqtdmgcbq0o" path="res://Assets/Background/background_default.jpg" id="1_go0gi"]
 [ext_resource type="Texture2D" uid="uid://bhjia7m6xmfq8" path="res://Assets/Panel/yellow_button04.png" id="2_r2g3f"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c1kp8tf5pe1mm" path="res://Assets/Buttons/False/red_button04.png" id="8_01c8x"]
 [ext_resource type="Texture2D" uid="uid://chy4yhpfh30v8" path="res://Assets/Buttons/False/red_button06.png" id="9_2g5vg"]
 [ext_resource type="Texture2D" uid="uid://ex1vllm5bmgj" path="res://Assets/Buttons/False/red_button05.png" id="10_t2224"]
+[ext_resource type="PackedScene" uid="uid://dgs4lt2aivkvq" path="res://Scenes/popup_componet.tscn" id="14_uu3ts"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4ojm"]
 bg_color = Color(1, 1, 1, 0.729412)
@@ -227,3 +228,10 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_uss73")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ouhj0")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_c6kal")
 text = "False"
+
+[node name="PopupComponet" parent="." instance=ExtResource("14_uu3ts")]
+layout_mode = 1
+offset_left = -600.0
+offset_top = -450.0
+offset_right = 650.0
+offset_bottom = 450.0
