@@ -1,0 +1,14 @@
+[
+	{
+		"question": "1 Random question",
+		"answer": true
+	},
+	{
+		"question": "2 Random question",
+		"answer": false
+	},
+	{
+		"question": "3 Random question",
+		"answer": true
+	}
+]
