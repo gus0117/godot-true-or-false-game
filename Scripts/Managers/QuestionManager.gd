@@ -1,6 +1,6 @@
 extends Node
 
-
+class_name QuestionManager
 # Variables
 var currentQuestion : Question :
 	get:
@@ -11,10 +11,12 @@ var index : int = 0 :
 		return index
 
 # Signals
-
+signal on_update_question(quest: String) #emit when current question was updated
+signal on_update_index(ind: int) #emit when index was updated
 
 func _ready():
 	questionList = QLManager.get_questions()
+	getNextQuestion()
 
 func savePlayerAnswer(ans: Question.Answer) -> void:
 	currentQuestion.playerAnswer = ans
@@ -24,6 +26,8 @@ func getNextQuestion() -> Question:
 	var currentQuestion = Question.new()
 	currentQuestion = questionList[index]
 	index += 1
+	on_update_question.emit(currentQuestion.question)
+	on_update_index.emit(index)
 	return currentQuestion
 	
 func getAmountQuestions() -> int :
