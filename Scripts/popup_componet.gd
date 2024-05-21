@@ -17,7 +17,8 @@ extends Control
 signal on_next # Signal to pass to next question
 
 func _ready():
-	ShowIncorrectMsg()
+	#ShowIncorrectMsg()
+	pass
 
 func ShowCorrectMsg() -> void:
 	bg_color.material.set_shader_parameter("color", successColor)

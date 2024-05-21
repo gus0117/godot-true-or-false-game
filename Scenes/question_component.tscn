@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://dduybl2tni52"]
+
+[ext_resource type="Texture2D" uid="uid://yjfjo1n0vm7s" path="res://Assets/Panel/grey_panel.png" id="1_68hi0"]
+[ext_resource type="Script" path="res://Scripts/question_component.gd" id="1_s534k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2mtdp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="QuestionComponent" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -186.0
+offset_top = -275.0
+offset_right = 186.0
+offset_bottom = 97.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2mtdp")
+script = ExtResource("1_s534k")
+
+[node name="Bg" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_68hi0")
+expand_mode = 4
+stretch_mode = 4
+
+[node name="Question" type="Label" parent="Bg"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.712
+offset_bottom = -0.240021
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+text = "Here is going a question."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
