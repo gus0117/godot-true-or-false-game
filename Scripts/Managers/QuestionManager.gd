@@ -12,7 +12,7 @@ var index : int = 0 :
 
 # Signals
 signal on_update_question(quest: String) #emit when current question was updated
-signal on_update_index(ind: int) #emit when index was updated
+signal on_update_index #emit when index was updated
 
 func _ready():
 	questionList = QLManager.get_questions()
@@ -27,7 +27,7 @@ func getNextQuestion() -> Question:
 	currentQuestion = questionList[index]
 	index += 1
 	on_update_question.emit(currentQuestion.question)
-	on_update_index.emit(index)
+	on_update_index.emit()
 	return currentQuestion
 	
 func getAmountQuestions() -> int :
