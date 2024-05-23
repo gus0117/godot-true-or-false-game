@@ -1,14 +1,62 @@
 [
 	{
-		"question": "1 Random question",
-		"answer": true
-	},
-	{
-		"question": "2 Random question",
+		"id": 0,
+		"question": "La seguridad en la calidad de productos software se refiere únicamente a la protección contra el acceso no autorizado de datos.",
 		"answer": false
 	},
 	{
-		"question": "3 Random question",
+		"id": 1,
+		"question": "La confidencialidad es la capacidad de protección contra el acceso de datos e información no autorizados.",
 		"answer": true
+	},
+	{
+		"id": 2,
+		"question": "La integridad se refiere a la capacidad de prevenir accesos o modificaciones no autorizados a datos o programas de computadora.",
+		"answer": true
+	},
+	{
+		"id": 3,
+		"question": "La no repudio implica la capacidad de demostrar acciones o eventos que no pueden ser refutados posteriormente.",
+		"answer": true
+	},
+	{
+		"id": 4,
+		"question": "La responsabilidad se refiere a la capacidad de rastrear las acciones de una entidad de forma inequívoca.",
+		"answer": true
+	},
+	{
+		"id": 5,
+		"question": "La autenticidad es la capacidad de demostrar la identidad de un sujeto o un recurso.",
+		"answer": true
+	},
+	{
+		"id": 6,
+		"question": "La compatibilidad se subdivide en coexistencia e interoperabilidad.",
+		"answer": true
+	},
+	{
+		"id": 7,
+		"question": "La interoperabilidad es la capacidad del producto para coexistir con otro software independiente en un entorno común.",
+		"answer": false
+	},
+	{
+		"id": 8,
+		"question": "La modularidad es la capacidad de un sistema o programa de computadora para permitir que un cambio en un componente tenga un impacto mínimo en los demás.",
+		"answer": true
+	},
+	{
+		"id": 9,
+		"question": "La reusabilidad se refiere a la capacidad de un activo de ser utilizado solo en un sistema de software.",
+		"answer": false
+	},
+	{
+		"id": 10,
+		"question": "La capacidad para ser analizado es la facilidad con la que se pueden establecer criterios de prueba para un sistema o componente.",
+		"answer": false
+	},
+	{
+		"id": 11,
+		"question": "La portabilidad se refiere únicamente a la transferencia de un producto de un entorno hardware a otro.",
+		"answer": false
 	}
 ]

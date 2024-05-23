@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b775ex25tymbn"]
+[gd_scene load_steps=27 format=3 uid="uid://b775ex25tymbn"]
 
 [ext_resource type="Texture2D" uid="uid://cxmqtdmgcbq0o" path="res://Assets/Background/background_default.jpg" id="1_go0gi"]
 [ext_resource type="Texture2D" uid="uid://bhjia7m6xmfq8" path="res://Assets/Panel/yellow_button04.png" id="2_r2g3f"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bqjrh7vfh5hgs" path="res://Scenes/timer.tscn" id="5_wkh5a"]
 [ext_resource type="Texture2D" uid="uid://p2abyma3qxoo" path="res://Assets/Buttons/True/green_button09.png" id="6_8qdf8"]
 [ext_resource type="Texture2D" uid="uid://n7tn7643imta" path="res://Assets/Buttons/True/green_button08.png" id="6_ycn3p"]
+[ext_resource type="Script" path="res://Scripts/answer_component.gd" id="7_8gdgl"]
 [ext_resource type="Texture2D" uid="uid://c8oj7h3p5d0io" path="res://Assets/Buttons/Options/red_sliderRight.png" id="7_wxk51"]
 [ext_resource type="Texture2D" uid="uid://c1kp8tf5pe1mm" path="res://Assets/Buttons/False/red_button04.png" id="8_01c8x"]
 [ext_resource type="Texture2D" uid="uid://chy4yhpfh30v8" path="res://Assets/Buttons/False/red_button06.png" id="9_2g5vg"]
@@ -164,7 +165,7 @@ size_flags_vertical = 8
 theme_override_styles/normal = SubResource("StyleBoxTexture_dpwnb")
 text = "Skip"
 
-[node name="BotPanel" type="PanelContainer" parent="."]
+[node name="AnswerComponent" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.774
@@ -173,17 +174,18 @@ anchor_bottom = 1.0
 offset_top = 0.399963
 grow_horizontal = 2
 grow_vertical = 0
+script = ExtResource("7_8gdgl")
 
-[node name="Bg" type="TextureRect" parent="BotPanel"]
+[node name="Bg" type="TextureRect" parent="AnswerComponent"]
 layout_mode = 2
 texture = ExtResource("4_peef8")
 
-[node name="ButtonsContainer" type="HBoxContainer" parent="BotPanel"]
+[node name="ButtonsContainer" type="HBoxContainer" parent="AnswerComponent"]
 layout_mode = 2
 theme_override_constants/separation = 50
 alignment = 1
 
-[node name="TrueBtn" type="Button" parent="BotPanel/ButtonsContainer"]
+[node name="TrueBtn" type="Button" parent="AnswerComponent/ButtonsContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -194,7 +196,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_74fuc")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_pv66g")
 text = "True"
 
-[node name="FalseBtn" type="Button" parent="BotPanel/ButtonsContainer"]
+[node name="FalseBtn" type="Button" parent="AnswerComponent/ButtonsContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -217,4 +219,6 @@ offset_bottom = 493.0
 
 [node name="GameManager" parent="." groups=["GameManager"] instance=ExtResource("16_p7mu5")]
 
+[connection signal="pressed" from="AnswerComponent/ButtonsContainer/TrueBtn" to="AnswerComponent" method="_on_true_btn_pressed"]
+[connection signal="pressed" from="AnswerComponent/ButtonsContainer/FalseBtn" to="AnswerComponent" method="_on_false_btn_pressed"]
 [connection signal="on_update_question" from="QuestionManager" to="QuestionComponent" method="_on_question_manager_on_update_question"]

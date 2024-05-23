@@ -1,6 +1,7 @@
 extends Node
 
 class_name QuestionManager
+
 # Variables
 var currentQuestion : Question :
 	get:
@@ -14,13 +15,30 @@ var index : int = 0 :
 signal on_update_question(quest: String) #emit when current question was updated
 signal on_update_index #emit when index was updated
 
+#References
+var gameManager : GameManager
+
 func _ready():
 	questionList = QLManager.get_questions()
 	getNextQuestion()
+	gameManager = get_tree().get_first_node_in_group("GameManager")
 
+#Register the player answer
 func savePlayerAnswer(ans: Question.Answer) -> void:
-	currentQuestion.playerAnswer = ans
-	pass
+	var i = questionList.find(currentQuestion) #find index from array
+	if i >= 0:
+		questionList[i].playerAnswer = ans
+		gameManager.SetPoints(checkPlayerAnswer(ans))
+	#Pass question anyway
+	#getNextQuestion()
+
+func checkPlayerAnswer(ans: Question.Answer) -> int:
+	if ans == boolToAnswer(currentQuestion.answer):
+		return 1
+	return -1
+
+func boolToAnswer(ans: bool) -> Question.Answer:
+	return Question.Answer.TRUE if ans == true else Question.Answer.FALSE
 
 func getNextQuestion() -> Question:
 	var currentQuestion = Question.new()
