@@ -207,13 +207,13 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_ouhj0")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_c6kal")
 text = "False"
 
-[node name="PopupComponet" parent="." instance=ExtResource("14_uu3ts")]
-visible = false
+[node name="PopupComponet" parent="." groups=["PopupComponent"] instance=ExtResource("14_uu3ts")]
 layout_mode = 1
 offset_left = -623.0
 offset_top = -396.0
 offset_right = 661.0
 offset_bottom = 493.0
+mouse_filter = 2
 
 [node name="QuestionManager" parent="." groups=["QuestionManager"] instance=ExtResource("15_hqjey")]
 
@@ -221,4 +221,5 @@ offset_bottom = 493.0
 
 [connection signal="pressed" from="AnswerComponent/ButtonsContainer/TrueBtn" to="AnswerComponent" method="_on_true_btn_pressed"]
 [connection signal="pressed" from="AnswerComponent/ButtonsContainer/FalseBtn" to="AnswerComponent" method="_on_false_btn_pressed"]
+[connection signal="on_next" from="PopupComponet" to="QuestionManager" method="_on_popup_componet_on_next"]
 [connection signal="on_update_question" from="QuestionManager" to="QuestionComponent" method="_on_question_manager_on_update_question"]

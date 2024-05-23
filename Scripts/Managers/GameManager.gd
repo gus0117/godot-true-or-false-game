@@ -1,6 +1,7 @@
 extends Node
 class_name GameManager
 
+# Settings
 var points: int = 0
 var amountQuestion: int = 0
 var questionCount: int = 1
@@ -13,6 +14,7 @@ func _ready():
 	qm.on_update_index.connect(AddQuestionCount)
 
 func SetPoints(value: int) -> void:
+	print("added points")
 	points += value
 	on_points_updated.emit(points)
 

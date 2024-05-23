@@ -25,9 +25,11 @@ func _ready():
 
 #Register the player answer
 func savePlayerAnswer(ans: Question.Answer) -> void:
+	print("Answer recived")
 	var i = questionList.find(currentQuestion) #find index from array
 	if i >= 0:
 		questionList[i].playerAnswer = ans
+		print("Set points")
 		gameManager.SetPoints(checkPlayerAnswer(ans))
 	#Pass question anyway
 	#getNextQuestion()
@@ -41,7 +43,7 @@ func boolToAnswer(ans: bool) -> Question.Answer:
 	return Question.Answer.TRUE if ans == true else Question.Answer.FALSE
 
 func getNextQuestion() -> Question:
-	var currentQuestion = Question.new()
+	currentQuestion = Question.new()
 	currentQuestion = questionList[index]
 	index += 1
 	on_update_question.emit(currentQuestion.question)
@@ -53,3 +55,6 @@ func getAmountQuestions() -> int :
 
 func isGameFinish() -> bool:
 	return index >= questionList.size()
+
+func _on_popup_componet_on_next():
+	getNextQuestion()
