@@ -6,6 +6,9 @@ class_name PopupComponent
 @onready var label = $Label
 @onready var bg_color = $BgColor
 @onready var animation_player = $AnimationPlayer
+@onready var correct_icon = $Icons/Correct
+@onready var incorrect_icon = $Icons/Incorrect
+
 var gameManager : GameManager
 
 # Color Settings
@@ -23,7 +26,8 @@ func _ready():
 	if get_tree().has_group("GameManager"):
 		gameManager = get_tree().get_first_node_in_group("GameManager")
 		gameManager.on_points_updated.connect(checkPoints)
-	pass
+	correct_icon.visible = false
+	incorrect_icon.visible = false
 
 func checkPoints(value: int) -> void:
 	if value < 0:
@@ -34,15 +38,20 @@ func checkPoints(value: int) -> void:
 func ShowCorrectMsg() -> void:
 	bg_color.material.set_shader_parameter("color", successColor)
 	label.text = successText
+	correct_icon.visible = true	
 	animation_player.play("show")
 
 func ShowIncorrectMsg() -> void:
 	bg_color.material.set_shader_parameter("color", failColor)
 	label.text = failText
+	incorrect_icon.visible = true
 	animation_player.play("show")
+	
 
 func HidePopup() -> void:
 	animation_player.play("hide")
+	correct_icon.visible = false
+	incorrect_icon.visible = false
 
 func _on_next_btn_pressed():
 	on_next.emit()

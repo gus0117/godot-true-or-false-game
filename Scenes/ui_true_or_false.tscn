@@ -209,10 +209,10 @@ text = "False"
 
 [node name="PopupComponet" parent="." groups=["PopupComponent"] instance=ExtResource("14_uu3ts")]
 layout_mode = 1
-offset_left = -623.0
-offset_top = -396.0
-offset_right = 661.0
-offset_bottom = 493.0
+offset_left = -635.0
+offset_top = -450.0
+offset_right = 649.0
+offset_bottom = 439.0
 mouse_filter = 2
 
 [node name="QuestionManager" parent="." groups=["QuestionManager"] instance=ExtResource("15_hqjey")]
