@@ -1,8 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://b775ex25tymbn"]
+[gd_scene load_steps=30 format=3 uid="uid://b775ex25tymbn"]
 
 [ext_resource type="Texture2D" uid="uid://cxmqtdmgcbq0o" path="res://Assets/Background/background_default.jpg" id="1_go0gi"]
 [ext_resource type="Texture2D" uid="uid://bhjia7m6xmfq8" path="res://Assets/Panel/yellow_button04.png" id="2_r2g3f"]
 [ext_resource type="PackedScene" uid="uid://dduybl2tni52" path="res://Scenes/question_component.tscn" id="3_0tc7h"]
+[ext_resource type="FontFile" uid="uid://dpb8m1xhm6f" path="res://Assets/Fonts/Poppins-Regular.ttf" id="3_1gkbl"]
+[ext_resource type="Script" path="res://Scripts/score_component.gd" id="3_bu28q"]
 [ext_resource type="Texture2D" uid="uid://dhxc8xpeuigls" path="res://Assets/Buttons/Options/grey_box.png" id="4_gtukq"]
 [ext_resource type="Texture2D" uid="uid://b28vcnbp4601h" path="res://Assets/Panel/blue_button05.png" id="4_peef8"]
 [ext_resource type="Texture2D" uid="uid://bjlmdr5gjou6j" path="res://Assets/Buttons/True/green_button07.png" id="5_ok6gm"]
@@ -20,6 +22,11 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4ojm"]
 bg_color = Color(1, 1, 1, 0.729412)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lddj8"]
+font = ExtResource("3_1gkbl")
+font_size = 19
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0lw2o"]
 texture = ExtResource("4_gtukq")
@@ -117,6 +124,57 @@ size_flags_vertical = 0
 [node name="Bg" type="TextureRect" parent="TopPanel"]
 layout_mode = 2
 texture = ExtResource("2_r2g3f")
+
+[node name="ScoreComponent" type="MarginContainer" parent="TopPanel"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("3_bu28q")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopPanel/ScoreComponent"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TopPanel/ScoreComponent/HBoxContainer"]
+layout_mode = 2
+text = "Score:"
+label_settings = SubResource("LabelSettings_lddj8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="TopPanel/ScoreComponent/HBoxContainer"]
+layout_mode = 2
+text = "123"
+label_settings = SubResource("LabelSettings_lddj8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuestionCountComponent" type="MarginContainer" parent="TopPanel"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopPanel/QuestionCountComponent"]
+layout_mode = 2
+
+[node name="CountLabel" type="Label" parent="TopPanel/QuestionCountComponent/HBoxContainer"]
+layout_mode = 2
+text = "5"
+label_settings = SubResource("LabelSettings_lddj8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AmountLabel" type="Label" parent="TopPanel/QuestionCountComponent/HBoxContainer"]
+layout_mode = 2
+text = "/ 10"
+label_settings = SubResource("LabelSettings_lddj8")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="QuestionComponent" parent="." instance=ExtResource("3_0tc7h")]
 layout_mode = 1

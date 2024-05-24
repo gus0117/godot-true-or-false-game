@@ -29,8 +29,7 @@ func savePlayerAnswer(ans: Question.Answer) -> void:
 	var i = questionList.find(currentQuestion) #find index from array
 	if i >= 0:
 		questionList[i].playerAnswer = ans
-		print("Set points")
-		gameManager.SetPoints(checkPlayerAnswer(ans))
+		gameManager.SetScore(checkPlayerAnswer(ans))
 	#Pass question anyway
 	#getNextQuestion()
 
