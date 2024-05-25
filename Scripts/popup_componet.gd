@@ -9,7 +9,8 @@ class_name PopupComponent
 @onready var correct_icon = $Icons/Correct
 @onready var incorrect_icon = $Icons/Incorrect
 
-var gameManager : GameManager
+#References
+var questionManager : QuestionManager
 
 # Color Settings
 @export var failColor : Color
@@ -23,17 +24,18 @@ var gameManager : GameManager
 signal on_next # Signal to pass to next question
 
 func _ready():
-	if get_tree().has_group("GameManager"):
-		gameManager = get_tree().get_first_node_in_group("GameManager")
-		gameManager.on_points_updated.connect(checkPoints)
+	if get_tree().has_group("QuestionManager"):
+		questionManager = get_tree().get_first_node_in_group("QuestionManager")
+		questionManager.answer_checked.connect(showPopup)
 	correct_icon.visible = false
 	incorrect_icon.visible = false
 
-func checkPoints(value: int) -> void:
+func showPopup(value: int) -> void:
 	if value < 0:
 		ShowIncorrectMsg()
 	else:
 		ShowCorrectMsg()
+	#Left 0 option, than means No answer or skip question
 
 func ShowCorrectMsg() -> void:
 	bg_color.material.set_shader_parameter("color", successColor)
