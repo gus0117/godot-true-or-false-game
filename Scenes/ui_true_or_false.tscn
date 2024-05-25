@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b775ex25tymbn"]
+[gd_scene load_steps=31 format=3 uid="uid://b775ex25tymbn"]
 
 [ext_resource type="Texture2D" uid="uid://cxmqtdmgcbq0o" path="res://Assets/Background/background_default.jpg" id="1_go0gi"]
 [ext_resource type="Texture2D" uid="uid://bhjia7m6xmfq8" path="res://Assets/Panel/yellow_button04.png" id="2_r2g3f"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/score_component.gd" id="3_bu28q"]
 [ext_resource type="Texture2D" uid="uid://dhxc8xpeuigls" path="res://Assets/Buttons/Options/grey_box.png" id="4_gtukq"]
 [ext_resource type="Texture2D" uid="uid://b28vcnbp4601h" path="res://Assets/Panel/blue_button05.png" id="4_peef8"]
+[ext_resource type="Script" path="res://Scripts/question_count_component.gd" id="5_few0u"]
 [ext_resource type="Texture2D" uid="uid://bjlmdr5gjou6j" path="res://Assets/Buttons/True/green_button07.png" id="5_ok6gm"]
 [ext_resource type="PackedScene" uid="uid://bqjrh7vfh5hgs" path="res://Scenes/timer.tscn" id="5_wkh5a"]
 [ext_resource type="Texture2D" uid="uid://p2abyma3qxoo" path="res://Assets/Buttons/True/green_button09.png" id="6_8qdf8"]
@@ -158,6 +159,7 @@ theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
+script = ExtResource("5_few0u")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TopPanel/QuestionCountComponent"]
 layout_mode = 2

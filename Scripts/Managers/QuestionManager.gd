@@ -15,9 +15,12 @@ var index : int = 0 :
 signal on_update_question(quest: String) #emit when current question was updated
 signal on_update_index #emit when index was updated
 signal answer_checked(ans: int) #Emit when the answer was checked and send if answer was correct = 1, incorrect = -1 or no answer = 0
+signal amount_obtained(amunt: int) #Emit when the amount of questions has been obtained
 
 func _ready():
 	questionList = QLManager.get_questions()
+	# When list loaded
+	amount_obtained.emit(get_amount_questions())
 	getNextQuestion()
 
 #Register the player answer
@@ -48,7 +51,7 @@ func getNextQuestion() -> Question:
 	on_update_index.emit()
 	return currentQuestion
 	
-func getAmountQuestions() -> int :
+func get_amount_questions() -> int :
 	return questionList.size()
 
 func isGameFinish() -> bool:
