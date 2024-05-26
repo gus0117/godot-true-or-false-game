@@ -9,7 +9,6 @@ func _ready():
 
 func SendAnswer(value: bool) -> void:
 	var ans : Question.Answer = Question.Answer.TRUE if value else Question.Answer.FALSE
-	print("Send answer")
 	questionManager.savePlayerAnswer(ans)
 
 func _on_true_btn_pressed():

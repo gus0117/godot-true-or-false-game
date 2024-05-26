@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b775ex25tymbn"]
+[gd_scene load_steps=32 format=3 uid="uid://b775ex25tymbn"]
 
 [ext_resource type="Texture2D" uid="uid://cxmqtdmgcbq0o" path="res://Assets/Background/background_default.jpg" id="1_go0gi"]
 [ext_resource type="Texture2D" uid="uid://bhjia7m6xmfq8" path="res://Assets/Panel/yellow_button04.png" id="2_r2g3f"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c8oj7h3p5d0io" path="res://Assets/Buttons/Options/red_sliderRight.png" id="7_wxk51"]
 [ext_resource type="Texture2D" uid="uid://c1kp8tf5pe1mm" path="res://Assets/Buttons/False/red_button04.png" id="8_01c8x"]
 [ext_resource type="Texture2D" uid="uid://chy4yhpfh30v8" path="res://Assets/Buttons/False/red_button06.png" id="9_2g5vg"]
+[ext_resource type="Script" path="res://Scripts/skip_component.gd" id="9_utiys"]
 [ext_resource type="Texture2D" uid="uid://ex1vllm5bmgj" path="res://Assets/Buttons/False/red_button05.png" id="10_t2224"]
 [ext_resource type="PackedScene" uid="uid://dgs4lt2aivkvq" path="res://Scenes/popup_componet.tscn" id="14_uu3ts"]
 [ext_resource type="PackedScene" uid="uid://q8l37oe34ofk" path="res://Scenes/question_manager.tscn" id="15_hqjey"]
@@ -214,14 +215,22 @@ text = "+ 10"
 [node name="Timer" parent="Options" instance=ExtResource("5_wkh5a")]
 visible = false
 
-[node name="SkipBtn" type="Button" parent="Options"]
+[node name="SkipComponent" type="Control" parent="Options"]
+anchors_preset = 0
+offset_left = 424.0
+offset_top = 614.0
+offset_right = 464.0
+offset_bottom = 654.0
+script = ExtResource("9_utiys")
+
+[node name="SkipBtn" type="Button" parent="Options/SkipComponent"]
 layout_mode = 2
-offset_left = 432.0
-offset_top = 617.0
-offset_right = 473.0
-offset_bottom = 648.0
+offset_right = 71.0
+offset_bottom = 57.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_1gkbl")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxTexture_dpwnb")
 text = "Skip"
 
@@ -279,6 +288,7 @@ mouse_filter = 2
 
 [node name="GameManager" parent="." groups=["GameManager"] instance=ExtResource("16_p7mu5")]
 
+[connection signal="pressed" from="Options/SkipComponent/SkipBtn" to="Options/SkipComponent" method="_on_skip_btn_pressed"]
 [connection signal="pressed" from="AnswerComponent/ButtonsContainer/TrueBtn" to="AnswerComponent" method="_on_true_btn_pressed"]
 [connection signal="pressed" from="AnswerComponent/ButtonsContainer/FalseBtn" to="AnswerComponent" method="_on_false_btn_pressed"]
 [connection signal="on_next" from="PopupComponet" to="QuestionManager" method="_on_popup_componet_on_next"]

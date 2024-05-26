@@ -35,11 +35,11 @@ func _ready():
 	skip_icon.visible = false
 
 func showPopup(value: int) -> void:
-	if value < 0:
-		ShowIncorrectMsg()
-	else:
-		ShowCorrectMsg()
-	#Left 0 option, than means No answer or skip question
+	match value:
+		-1: ShowIncorrectMsg()
+		0: ShowSkipMsg()
+		1: ShowCorrectMsg()
+		_: print("No actions for this value: " + str(value))
 
 func ShowCorrectMsg() -> void:
 	bg_color.material.set_shader_parameter("color", successColor)
