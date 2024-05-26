@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dgs4lt2aivkvq"]
+[gd_scene load_steps=18 format=3 uid="uid://dgs4lt2aivkvq"]
 
 [ext_resource type="Shader" path="res://Shaders/popup_componet.gdshader" id="1_jx36v"]
 [ext_resource type="Script" path="res://Scripts/popup_componet.gd" id="1_yhecv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b28vcnbp4601h" path="res://Assets/Panel/blue_button05.png" id="3_steuu"]
 [ext_resource type="Texture2D" uid="uid://b0l8ltywf8xrh" path="res://Assets/Buttons/Options/green_checkmark.png" id="4_ihqtc"]
 [ext_resource type="Texture2D" uid="uid://hqorocl02gdw" path="res://Assets/Buttons/Options/red_cross.png" id="5_ov0cx"]
+[ext_resource type="Texture2D" uid="uid://jpqhmnlufbwj" path="res://Assets/Buttons/Options/blue_sliderRight.png" id="6_yu1du"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h4hda"]
 shader = ExtResource("1_jx36v")
@@ -212,6 +213,7 @@ grow_vertical = 2
 script = ExtResource("1_yhecv")
 failColor = Color(0.996078, 0, 0, 1)
 successColor = Color(0, 0.752941, 0, 1)
+skipColor = Color(0.301961, 0.356863, 0.698039, 1)
 
 [node name="BgColor" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_h4hda")
@@ -283,6 +285,29 @@ layout_mode = 0
 offset_right = 108.0
 offset_bottom = 99.0
 texture = ExtResource("5_ov0cx")
+
+[node name="Skip" type="Control" parent="Icons"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -54.0
+offset_right = 54.0
+offset_bottom = 98.0
+grow_horizontal = 2
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Icons/Skip"]
+layout_mode = 0
+offset_right = 105.0
+offset_bottom = 98.0
+texture = ExtResource("3_jfgfi")
+
+[node name="TextureRect2" type="TextureRect" parent="Icons/Skip"]
+layout_mode = 0
+offset_right = 108.0
+offset_bottom = 99.0
+texture = ExtResource("6_yu1du")
 
 [node name="Label" type="Label" parent="."]
 visible = false
