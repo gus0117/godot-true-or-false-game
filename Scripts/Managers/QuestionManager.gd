@@ -10,6 +10,7 @@ var questionList : Array[Question] = []
 var index : int = 0 :
 	get:
 		return index
+var amountQuestions := 10 # The amount of question to show in game.
 
 # Signals
 signal on_update_question(quest: String) #emit when current question was updated
