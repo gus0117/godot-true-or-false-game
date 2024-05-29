@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 QLManager="*res://Scripts/Managers/QuestionLoader.gd"
+GameStats="*res://Scripts/Managers/game_stats.gd"
 
 [display]
 
