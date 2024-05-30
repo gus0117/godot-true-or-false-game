@@ -1,0 +1,295 @@
+[gd_scene load_steps=32 format=3 uid="uid://b775ex25tymbn"]
+
+[ext_resource type="Texture2D" uid="uid://cxmqtdmgcbq0o" path="res://Assets/Background/background_default.jpg" id="1_go0gi"]
+[ext_resource type="Texture2D" uid="uid://bhjia7m6xmfq8" path="res://Assets/Panel/yellow_button04.png" id="2_r2g3f"]
+[ext_resource type="PackedScene" uid="uid://dduybl2tni52" path="res://Scenes/question_component.tscn" id="3_0tc7h"]
+[ext_resource type="FontFile" uid="uid://dpb8m1xhm6f" path="res://Assets/Fonts/Poppins-Regular.ttf" id="3_1gkbl"]
+[ext_resource type="Script" path="res://Scripts/score_component.gd" id="3_bu28q"]
+[ext_resource type="Texture2D" uid="uid://dhxc8xpeuigls" path="res://Assets/Buttons/Options/grey_box.png" id="4_gtukq"]
+[ext_resource type="Texture2D" uid="uid://b28vcnbp4601h" path="res://Assets/Panel/blue_button05.png" id="4_peef8"]
+[ext_resource type="Script" path="res://Scripts/question_count_component.gd" id="5_few0u"]
+[ext_resource type="Texture2D" uid="uid://bjlmdr5gjou6j" path="res://Assets/Buttons/True/green_button07.png" id="5_ok6gm"]
+[ext_resource type="PackedScene" uid="uid://bqjrh7vfh5hgs" path="res://Scenes/timer.tscn" id="5_wkh5a"]
+[ext_resource type="Texture2D" uid="uid://p2abyma3qxoo" path="res://Assets/Buttons/True/green_button09.png" id="6_8qdf8"]
+[ext_resource type="Texture2D" uid="uid://n7tn7643imta" path="res://Assets/Buttons/True/green_button08.png" id="6_ycn3p"]
+[ext_resource type="Script" path="res://Scripts/answer_component.gd" id="7_8gdgl"]
+[ext_resource type="Texture2D" uid="uid://c8oj7h3p5d0io" path="res://Assets/Buttons/Options/red_sliderRight.png" id="7_wxk51"]
+[ext_resource type="Texture2D" uid="uid://c1kp8tf5pe1mm" path="res://Assets/Buttons/False/red_button04.png" id="8_01c8x"]
+[ext_resource type="Texture2D" uid="uid://chy4yhpfh30v8" path="res://Assets/Buttons/False/red_button06.png" id="9_2g5vg"]
+[ext_resource type="Script" path="res://Scripts/skip_component.gd" id="9_utiys"]
+[ext_resource type="Texture2D" uid="uid://ex1vllm5bmgj" path="res://Assets/Buttons/False/red_button05.png" id="10_t2224"]
+[ext_resource type="PackedScene" uid="uid://dgs4lt2aivkvq" path="res://Scenes/popup_componet.tscn" id="14_uu3ts"]
+[ext_resource type="PackedScene" uid="uid://q8l37oe34ofk" path="res://Scenes/question_manager.tscn" id="15_hqjey"]
+[ext_resource type="PackedScene" uid="uid://bgop607keisq2" path="res://Scenes/game_manager.tscn" id="16_p7mu5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4ojm"]
+bg_color = Color(1, 1, 1, 0.729412)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lddj8"]
+font = ExtResource("3_1gkbl")
+font_size = 19
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0lw2o"]
+texture = ExtResource("4_gtukq")
+texture_margin_left = 8.0
+texture_margin_top = 10.0
+texture_margin_right = 8.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dpwnb"]
+texture = ExtResource("7_wxk51")
+texture_margin_right = 3.0
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 15.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n3e74"]
+texture = ExtResource("5_ok6gm")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_74fuc"]
+texture = ExtResource("6_8qdf8")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pv66g"]
+texture = ExtResource("6_ycn3p")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uss73"]
+texture = ExtResource("8_01c8x")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ouhj0"]
+texture = ExtResource("9_2g5vg")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c6kal"]
+texture = ExtResource("10_t2224")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+
+[node name="UITrueOrFalse" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_go0gi")
+
+[node name="PanelFilter" type="PanelContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 22.5
+offset_right = 13.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i4ojm")
+
+[node name="TopPanel" type="PanelContainer" parent="."]
+layout_mode = 2
+offset_right = 550.0
+offset_bottom = 102.0
+size_flags_vertical = 0
+
+[node name="Bg" type="TextureRect" parent="TopPanel"]
+layout_mode = 2
+texture = ExtResource("2_r2g3f")
+
+[node name="ScoreComponent" type="MarginContainer" parent="TopPanel"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("3_bu28q")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopPanel/ScoreComponent"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TopPanel/ScoreComponent/HBoxContainer"]
+layout_mode = 2
+text = "Score:"
+label_settings = SubResource("LabelSettings_lddj8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="TopPanel/ScoreComponent/HBoxContainer"]
+layout_mode = 2
+text = "123"
+label_settings = SubResource("LabelSettings_lddj8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuestionCountComponent" type="MarginContainer" parent="TopPanel"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("5_few0u")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopPanel/QuestionCountComponent"]
+layout_mode = 2
+
+[node name="CountLabel" type="Label" parent="TopPanel/QuestionCountComponent/HBoxContainer"]
+layout_mode = 2
+text = "5"
+label_settings = SubResource("LabelSettings_lddj8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AmountLabel" type="Label" parent="TopPanel/QuestionCountComponent/HBoxContainer"]
+layout_mode = 2
+text = "/ 10"
+label_settings = SubResource("LabelSettings_lddj8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuestionComponent" parent="." instance=ExtResource("3_0tc7h")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0
+anchor_top = 0.229
+anchor_right = 1.0
+anchor_bottom = 0.642
+offset_left = 87.0
+offset_top = -0.100021
+offset_right = -91.0
+offset_bottom = 0.200012
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Options" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AddTimeBtn" type="Button" parent="Options"]
+visible = false
+layout_mode = 2
+offset_left = 54.0
+offset_top = 610.0
+offset_right = 111.0
+offset_bottom = 660.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0, 0.709804, 0, 1)
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxTexture_0lw2o")
+text = "+ 10"
+
+[node name="Timer" parent="Options" instance=ExtResource("5_wkh5a")]
+visible = false
+
+[node name="SkipComponent" type="Control" parent="Options"]
+anchors_preset = 0
+offset_left = 424.0
+offset_top = 614.0
+offset_right = 464.0
+offset_bottom = 654.0
+script = ExtResource("9_utiys")
+
+[node name="SkipBtn" type="Button" parent="Options/SkipComponent"]
+layout_mode = 2
+offset_right = 71.0
+offset_bottom = 57.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_1gkbl")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_dpwnb")
+text = "Skip"
+
+[node name="AnswerComponent" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.774
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.399963
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("7_8gdgl")
+
+[node name="Bg" type="TextureRect" parent="AnswerComponent"]
+layout_mode = 2
+texture = ExtResource("4_peef8")
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="AnswerComponent"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="TrueBtn" type="Button" parent="AnswerComponent/ButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.980392, 0.980392, 0.980392, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxTexture_n3e74")
+theme_override_styles/hover = SubResource("StyleBoxTexture_74fuc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pv66g")
+text = "True"
+
+[node name="FalseBtn" type="Button" parent="AnswerComponent/ButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxTexture_uss73")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ouhj0")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_c6kal")
+text = "False"
+
+[node name="PopupComponet" parent="." groups=["PopupComponent"] instance=ExtResource("14_uu3ts")]
+layout_mode = 1
+offset_left = -635.0
+offset_top = -450.0
+offset_right = 649.0
+offset_bottom = 439.0
+mouse_filter = 2
+
+[node name="QuestionManager" parent="." groups=["QuestionManager"] instance=ExtResource("15_hqjey")]
+
+[node name="GameManager" parent="." groups=["GameManager"] instance=ExtResource("16_p7mu5")]
+
+[connection signal="pressed" from="Options/SkipComponent/SkipBtn" to="Options/SkipComponent" method="_on_skip_btn_pressed"]
+[connection signal="pressed" from="AnswerComponent/ButtonsContainer/TrueBtn" to="AnswerComponent" method="_on_true_btn_pressed"]
+[connection signal="pressed" from="AnswerComponent/ButtonsContainer/FalseBtn" to="AnswerComponent" method="_on_false_btn_pressed"]
+[connection signal="on_next" from="PopupComponet" to="QuestionManager" method="_on_popup_componet_on_next"]
+[connection signal="on_update_question" from="QuestionManager" to="QuestionComponent" method="_on_question_manager_on_update_question"]

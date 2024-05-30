@@ -20,5 +20,4 @@ func update_count_label() -> void:
 	index += 1
 
 func update_amount_label(amount: int) -> void:
-	amount_label.text = "/ " + str(amount)
-	qm.amount_obtained.disconnect(update_amount_label)
+	amount_label.text = "/ " + str(GameStats.amount_questions)

@@ -19,7 +19,7 @@ signal answer_checked(ans: int) #Emit when the answer was checked and send if an
 signal amount_obtained(amunt: int) #Emit when the amount of questions has been obtained
 
 func _ready():
-	questionList = QLManager.get_questions()
+	GameStats.questionList = QLManager.get_questions()
 	# When list loaded
 	amount_obtained.emit(get_amount_questions())
 	getNextQuestion()
@@ -27,15 +27,16 @@ func _ready():
 #Register the player answer
 func savePlayerAnswer(ans: Question.Answer) -> void:
 	print("Answer recived")
-	var i = questionList.find(currentQuestion) #find index from array
+	var i = GameStats.questionList.find(currentQuestion) #find index from array
 	if i >= 0:
-		questionList[i].playerAnswer = ans
+		GameStats.questionList[i].playerAnswer = ans
 		answer_checked.emit(checkPlayerAnswer(ans))
 	#Pass question anyway
 	#getNextQuestion()
 
 func checkPlayerAnswer(ans: Question.Answer) -> int:
 	if ans == boolToAnswer(currentQuestion.answer):
+		GameStats.add_correct_answer()
 		return 1 #Correct answer
 	if ans == Question.Answer.NA:
 		return 0 #No Answer
@@ -44,19 +45,21 @@ func checkPlayerAnswer(ans: Question.Answer) -> int:
 func boolToAnswer(ans: bool) -> Question.Answer:
 	return Question.Answer.TRUE if ans == true else Question.Answer.FALSE
 
-func getNextQuestion() -> Question:
+func getNextQuestion() -> void:
 	currentQuestion = Question.new()
-	currentQuestion = questionList[index]
+	currentQuestion = GameStats.questionList[index]
 	index += 1
+	if isGameFinish():
+		get_tree().change_scene_to_file("res://Scenes/score_result.tscn")
+		return
 	on_update_question.emit(currentQuestion.question)
 	on_update_index.emit()
-	return currentQuestion
 	
 func get_amount_questions() -> int :
 	return questionList.size()
 
 func isGameFinish() -> bool:
-	return index >= questionList.size()
+	return index >= GameStats.amount_questions
 
 func _on_popup_componet_on_next():
 	getNextQuestion()

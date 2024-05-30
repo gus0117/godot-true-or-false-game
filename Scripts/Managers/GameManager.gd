@@ -19,6 +19,6 @@ func SetScore(value: int) -> void:
 	score += value
 	if score < 0:
 		score = 0
-	print("Score: " + str(score))
+	GameStats.score = score
 	on_points_updated.emit(score) # Score component needs score, but Popup component needs value :/
 
