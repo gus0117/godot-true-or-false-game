@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://nkc4kvqgiv0c"]
+
+[ext_resource type="FontFile" uid="uid://dpb8m1xhm6f" path="res://Assets/Fonts/Poppins-Regular.ttf" id="1_rk3rs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w6wsk"]
+font = ExtResource("1_rk3rs")
+font_size = 35
+font_color = Color(1, 1, 0.615686, 1)
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 6
+shadow_color = Color(0.0509804, 0.0509804, 0.0509804, 0)
+shadow_offset = Vector2(1, 2)
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.694118, 0.815686, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -170.0
+offset_top = 112.0
+offset_right = 168.0
+offset_bottom = 162.0
+grow_horizontal = 2
+text = "True or False Game"
+label_settings = SubResource("LabelSettings_w6wsk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = -134.0
+offset_right = 95.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_rk3rs")
+theme_override_font_sizes/font_size = 40
+text = "Play"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_rk3rs")
+theme_override_font_sizes/font_size = 40
+text = "Quit"
