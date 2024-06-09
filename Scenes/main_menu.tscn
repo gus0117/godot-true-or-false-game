@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://nkc4kvqgiv0c"]
+[gd_scene load_steps=5 format=3 uid="uid://nkc4kvqgiv0c"]
 
 [ext_resource type="FontFile" uid="uid://dpb8m1xhm6f" path="res://Assets/Fonts/Poppins-Regular.ttf" id="1_rk3rs"]
 
@@ -11,6 +11,23 @@ outline_color = Color(0, 0, 0, 1)
 shadow_size = 6
 shadow_color = Color(0.0509804, 0.0509804, 0.0509804, 0)
 shadow_offset = Vector2(1, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_byph6"]
+bg_color = Color(0, 0.701961, 0.352941, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.129412, 0.380392, 0.137255, 0.423529)
+corner_detail = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vyx0j"]
+bg_color = Color(0.847059, 0.211765, 0.282353, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.647059, 0.14902, 0.14902, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -62,10 +79,12 @@ alignment = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_rk3rs")
 theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_byph6")
 text = "Play"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_rk3rs")
 theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_vyx0j")
 text = "Quit"
