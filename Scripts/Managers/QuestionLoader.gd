@@ -1,7 +1,7 @@
 extends Node
 
 class_name QuestionLoader
-var data_url := "res://Data/data.json"
+var data_url := "res://Data/data2.json"
 
 func get_questions() -> Array[Question]:
 	var questionList : Array[Question] = []

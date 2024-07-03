@@ -1,0 +1,52 @@
+[
+	{
+		"id": 0,
+		"question": "El sol es una estrella.",
+		"answer": true
+	},
+	{
+		"id": 1,
+		"question": "La capital de Francia es Madrid.",
+		"answer": false
+	},
+	{
+		"id": 2,
+		"question": "La Tierra tiene dos lunas.",
+		"answer": false
+	},
+	{
+		"id": 3,
+		"question": "El agua hierve a 100 grados Celsius a nivel del mar.",
+		"answer": true
+	},
+	{
+		"id": 4,
+		"question": "El Monte Everest es la montaña más alta del mundo.",
+		"answer": true
+	},
+	{
+		"id": 5,
+		"question": "La Gran Muralla China se puede ver desde el espacio a simple vista.",
+		"answer": false
+	},
+	{
+		"id": 6,
+		"question": "Los delfines son mamíferos.",
+		"answer": true
+	},
+	{
+		"id": 7,
+		"question": "La velocidad de la luz es mayor que la velocidad del sonido.",
+		"answer": true
+	},
+	{
+		"id": 8,
+		"question": "El símbolo químico del oro es Ag.",
+		"answer": false
+	},
+	{
+		"id": 9,
+		"question": "Las abejas pueden comunicarse entre sí a través de movimientos conocidos como la danza de las abejas.",
+		"answer": true
+	}
+]
